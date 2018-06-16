@@ -9,9 +9,13 @@
 using namespace std;
 
 
-int main() {
-    const char *filename = "/home/mikhail-mustakimov/prog_exam/v1_13_pack/input/input.txt";
-    unordered_message msg = readMessage(filename);
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        cerr << "Wrong number of parameters!" << endl;
+        cerr << "You should run with 1 command line option - filename" << endl;
+        return -1;
+    }
+    unordered_message msg = readMessage(argv[1]);
 
     cout << "Original (unordered) message packages: " << endl;
     for (auto pkg : msg.packages) {
